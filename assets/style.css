@@ -9,3 +9,37 @@ h1 {
     background-image:linear-gradient(to right, rgb(130, 200, 223), rgb(2, 2, 37));
     color: white;
 }
+
+form {
+    width: 400px;
+    margin: auto;
+    margin-top: 25px;
+  }
+  
+  
+  input {
+    padding: 4px 10px;
+    border: 0;
+    font-size: 16px;
+  }
+  
+  .search {
+    width: 75%;
+    border: solid;
+    border-radius: 5px;
+  }
+  
+  .submit {
+    width: 70px;
+    background-color: rgb(130, 200, 223);
+    color: #ffffff;
+    border-radius: 5px;
+  }
+
+
+  
+  .left {
+    float: left;
+    margin-left: 10px;
+    
+}
