@@ -38,8 +38,16 @@ form {
 
 
   
-  .left {
-    float: left;
-    margin-left: 10px;
-    
-}
+ .left {
+   float:left;
+   width: 500px;
+   height: 500px;
+   margin: 15px;
+ }
+
+ .right .forecast {
+  display: inline-block;
+  vertical-align: right;
+ }
+ 
+

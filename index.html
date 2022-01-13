@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://kit.fontawesome.com/fdf8c977f5.js" crossorigin="anonymous"></script>
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
@@ -18,14 +18,46 @@
     <h1>Weather Dashboard</h1>
     </div>
 
+
+    <main class="container">
+      <div class="row p-2">
     <!-- div for search bar on left side -->
-    <div class="left">
-    <form action="/form/submit" method="GET"> 
+    <div class=" float left panel panel-default">
+      <form action="submit"> 
         <label for="city input">Search for a city</label>
         <input type="text" name="text" class="search" placeholder="Memphis">
         <input type="submit" name="submit" class="submit" value="Search" id="city input">
       </form>
       </div>
+      
+      <!-- div for current weather on right side-->
+      <div class="right">
+          <div class="cityName">
+            <h2 id="name"> Miami </h2>
+            <h3 id="date">Jan 13 2022</h3>
+            <img id="weather-icon" />
+          </div>
+          <p> Temperature: <span id="temperature"></span> &deg;F</p>
+          <p>Humidity: <span id="humidity"></span>%</p>
+          <p>Wind Speed <span id="wind"></span>MPH</p>
+          <p>UV Index: <span id="uv-index"></span></p>
+      </div>
+
+      <!-- cards for 5 day weather forecast -->
+      <div class="forecast">
+        <h2>This Week's Forecast</h2>
+        <div class="row">
+          
+
+
+
+        </div>
+
+      </div>
+
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     
 </body>
 </html>
