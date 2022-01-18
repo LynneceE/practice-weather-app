@@ -21,26 +21,36 @@
 
     <main class="container">
       <div class="row p-2">
-    <!-- div for search bar on left side -->
+    <!-- div for search bar on left side and list of previously searched cities-->
     <div class=" float left panel panel-default">
-      <form action="submit"> 
-        <label for="city input">Search for a city</label>
-        <input type="text" name="text" class="search" placeholder="Memphis">
-        <input type="submit" name="submit" class="submit" value="Search" id="city input">
+      <form action="submit" id="search-form"> 
+        <label for="search-input">Search for a city</label>
+        <input type="text" name="text" class="search" placeholder="Memphis" id="search-form">
+        <input type="submit" name="submit" class="submit" value="Search" id="search">
       </form>
+
+      <div class="recent-search" id="recent-search">
+        <div class="search-list">
+          <h3>Recent Searches</h3>
+        </div>
       </div>
+      </div>
+
+
+      
+
       
       <!-- div for current weather on right side-->
       <div class="right">
           <div class="cityName">
-            <h2 id="name"> Miami </h2>
+            <h2 id="city"> Miami </h2>
             <h3 id="date">Jan 13 2022</h3>
-            <img id="weather-icon" />
+            <img id="icon" />
           </div>
           <p> Temperature: <span id="temperature"></span> &deg;F</p>
           <p>Humidity: <span id="humidity"></span>%</p>
           <p>Wind Speed <span id="wind"></span>MPH</p>
-          <p>UV Index: <span id="uv-index"></span></p>
+          <p>UV Index: <span id="uv"></span></p>
       </div>
 
       <!-- cards for 5 day weather forecast -->
@@ -49,6 +59,7 @@
         <div class="row">
           <div class="card">Day 1
             <div class="card-body">
+              <img id="current-weather">
             <p> Temperature: <span id="temperature"></span> &deg;F</p>
             <p>Humidity: <span id="humidity"></span>%</p>
             <p>Wind Speed <span id="wind"></span>MPH</p>
@@ -97,6 +108,6 @@
       </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-    
+    <script src="./assets/script.js"></script>
 </body>
 </html>
