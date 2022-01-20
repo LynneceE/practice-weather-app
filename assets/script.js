@@ -1,55 +1,70 @@
 // global selectors
-var searchFormEl = document.querySelector("#search-form");
-var searchInputEl = document. querySelector("#search-input");
-var cityNameEl = document.querySelector("#name");
-var dateEl = document.querySelector("#date");
-var weatherIconEl = document.querySelector("#icon");
-var temperatureEl = document.querySelector("#temperature");
-var windEl = document.querySelector("#wind");
-var humidityEl = document.querySelector("#humidity");
-var uvIndexEl = document.querySelector("#uv");
+const formEl = document.querySelector("#search-form");
+const searchInputEl = document. querySelector("#search-input");
+const cityItemEl = document.querySelector('#city-list');
+const cityNameEl = document.querySelector("#name");
+const dateEl = document.querySelector("#date");
+const weatherIconEl = document.querySelector("#icon");
+const temperatureEl = document.querySelector("#temperature");
+const windEl = document.querySelector("#wind");
+const humidityEl = document.querySelector("#humidity");
+const uvIndexEl = document.querySelector("#uv");
 
-var apiKey = ('45f469664e37c781b87272989d626c9a');
+const apiKey = ('45f469664e37c781b87272989d626c9a');
 
 
-var formSubmitHandler = function(event) {
+// show previously searched cities in list
+
+
+const createFormHandler = function(event) {
     event.preventDefault();
+     var cityInput = document.querySelector("input[name='city-name']").value;
 
-    // get value from input
-    var city = searchInputEl.value.trim();
+     
 
-    if (city) {
-        getCityWeather(city);
-    };
+     var listItemEl = document.createElement("li");
+     listItemEl.className = "city-item";
 
-// function for weather api
+     
+     var cityListEl = document.createElement("div");
+     cityListEl.className = "search-list";
 
-var getCityWeather = function(city) {
-    
-    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey} `; 
+     
 
-    // make get request to url
+     cityListEl.innerHTML = "h3 class= 'city-name'>" + cityInput + "</h3>";
+     listItemEl.appendChild(cityListEl);
 
-    fetch(apiUrl).then(function(response) {
-        if (response.ok) {
-            console.log(response);
-            response.json().then(function(data) {
-                console.log(data);
-                displayCityData(data, city);
-            });
-        }  else {
-            alert("Error: " + response.statusText);
-        }
-    }).catch(function(error) {
-        alert("Unable to display weather");
+
+};
+
+
+
+// request data from api in specific city (included in http..here I used Austin, Tx)
+
+function getWeatherData(city) {
+    fetch (`https://api.openweathermap.org/data/2.5/forecast?q=Austin&appid=${apiKey}`)
+    .then(function(resp) {return resp.json()})
+    .then(function(data) {
+        console.log(data);
+    })
+    .catch(function() {
+
     });
-
-};
-
+}
 
 
+// display weather data on page
 
 
-};
 
-searchFormEl.addEventListener('submit', formSubmitHandler);
+
+
+
+
+window.onload = function() {
+    getWeatherData();
+}
+
+
+
+ formEl.addEventListener("submit", createFormHandler);
